@@ -1,0 +1,4 @@
+[submodule "modules/voxel"]
+	path = modules/voxel
+	url = https://github.com/Zylann/godot_voxel.git
+	branch = godot3.x
