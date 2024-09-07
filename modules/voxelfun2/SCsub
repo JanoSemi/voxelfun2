@@ -1,0 +1,8 @@
+# SCsub
+
+Import('env')
+
+source_files = ["*.cpp"]
+
+for f in source_files:
+    env.add_source_files(env.modules_sources, f)
