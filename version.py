@@ -1,5 +1,5 @@
 short_name = "godot"
-name = "Godot Engine"
+name = "VoxelFun 2 Engine"
 major = 3
 minor = 5
 patch = 4
