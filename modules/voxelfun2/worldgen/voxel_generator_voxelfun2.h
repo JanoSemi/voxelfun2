@@ -40,6 +40,8 @@ private:
 	FastNoiseLite hill_noise;
 	FastNoiseLite mountain_noise;
 	FastNoiseLite selector_noise;
+	// Caves
+	FastNoiseLite cheese_cave_noise;
 
 	void update_seed(int s);
 };

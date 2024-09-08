@@ -5,6 +5,9 @@ VoxelGeneratorVoxelFun2::VoxelGeneratorVoxelFun2() {
 	hill_noise.set_period(128.0);
 	mountain_noise.set_period(192.0);
 	selector_noise.set_period(512.0);
+	// Caves
+	cheese_cave_noise.set_period(128.0);
+	// Other stuff
 	update_seed(_parameters.seed);
 }
 
@@ -50,6 +53,7 @@ void VoxelGeneratorVoxelFun2::update_seed(int seed) {
 	hill_noise.set_seed(seed);
 	mountain_noise.set_seed(seed);
 	selector_noise.set_seed(seed);
+	cheese_cave_noise.set_seed(seed);
 }
 
 VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest &input) {
@@ -73,9 +77,12 @@ VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest
 			int gz = origin.z + z;
 			float hill_y = hill_noise.get_noise_2d(gx, gz) * params.hill_height;
 			float mountain_y = (mountain_noise.get_noise_2d(gx, gz) * params.mountain_height) + params.mountain_height / 2;
-			int gy = origin.y;
+			float selector = selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.5f;
+			int surface_y = int(Math::lerp(hill_y, mountain_y, selector));
 			for (int y = 0; y < bs.y; ++y) {
-				if (gy + y <= int(Math::lerp(hill_y, mountain_y, selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.5f))) {
+				int gy = origin.y + y;
+				bool cheese_cave = ((selector > 0.4) ? gy <= surface_y : gy < surface_y) && (cheese_cave_noise.get_noise_3d(gx, gy, gz)) > 0.6;
+				if (!cheese_cave && gy <= surface_y) {
 					out_buffer.set_voxel(1, x, y, z);
 				}
 			}
