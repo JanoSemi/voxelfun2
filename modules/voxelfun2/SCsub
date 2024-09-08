@@ -1,6 +1,6 @@
 # SCsub
 
-Import('env')
+Import("env")
 
 source_files = ["*.cpp", "worldgen/*.cpp"]
 
