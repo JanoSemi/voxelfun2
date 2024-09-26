@@ -49,6 +49,17 @@ int VoxelGeneratorVoxelFun2::get_seed() const {
 	return _parameters.seed;
 }
 
+void VoxelGeneratorVoxelFun2::set_library(Ref<VoxelLibrary> l) {
+	RWLockWrite wlock(_parameters_lock);
+	_parameters.library = l;
+	_parameters.stone_block = l->get_voxel_index_from_name("stone");
+}
+
+Ref<VoxelLibrary> VoxelGeneratorVoxelFun2::get_library() const {
+	RWLockRead rlock(_parameters_lock);
+	return _parameters.library;
+}
+
 void VoxelGeneratorVoxelFun2::update_seed(int seed) {
 	hill_noise.set_seed(seed);
 	mountain_noise.set_seed(seed);
@@ -83,7 +94,7 @@ VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest
 				int gy = origin.y + y;
 				bool cheese_cave = ((selector > 0.4) ? gy <= surface_y : gy < surface_y) && (cheese_cave_noise.get_noise_3d(gx, gy, gz)) > 0.6;
 				if (!cheese_cave && gy <= surface_y) {
-					out_buffer.set_voxel(1, x, y, z);
+					out_buffer.set_voxel(params.stone_block, x, y, z);
 				}
 			}
 		} // for z
@@ -99,8 +110,11 @@ void VoxelGeneratorVoxelFun2::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_mountain_height"), &VoxelGeneratorVoxelFun2::get_mountain_height);
 	ClassDB::bind_method(D_METHOD("set_seed", "s"), &VoxelGeneratorVoxelFun2::set_seed);
 	ClassDB::bind_method(D_METHOD("get_seed"), &VoxelGeneratorVoxelFun2::get_seed);
+	ClassDB::bind_method(D_METHOD("set_library", "l"), &VoxelGeneratorVoxelFun2::set_library);
+	ClassDB::bind_method(D_METHOD("get_library"), &VoxelGeneratorVoxelFun2::get_library);
 
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "hill_height"), "set_hill_height", "get_hill_height");
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "mountain_height"), "set_mountain_height", "get_mountain_height");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "seed"), "set_seed", "get_seed");
+	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "library", PROPERTY_HINT_RESOURCE_TYPE, "VoxelLibrary"), "set_library", "get_library");
 }
