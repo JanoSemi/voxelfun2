@@ -1,9 +1,9 @@
 #ifndef VOXEL_GENERATOR_VOXELFUN2_H
 #define VOXEL_GENERATOR_VOXELFUN2_H
 
-#include "../../voxel/generators/voxel_generator.h"
-#include "../../voxel/meshers/blocky/voxel_library.h"
-#include "../../voxel/util/noise/fast_noise_lite.h"
+#include "biomes/biomes.h"
+#include "modules/voxel/generators/voxel_generator.h"
+#include "modules/voxel/util/noise/fast_noise_lite.h"
 
 class VoxelGeneratorVoxelFun2 : public VoxelGenerator {
 	GDCLASS(VoxelGeneratorVoxelFun2, VoxelGenerator)
@@ -25,9 +25,6 @@ public:
 	void set_seed(int s);
 	int get_seed() const;
 
-	void set_library(Ref<VoxelLibrary> l);
-	Ref<VoxelLibrary> get_library() const;
-
 protected:
 	static void _bind_methods();
 
@@ -36,8 +33,6 @@ private:
 		float hill_height = 10.0;
 		float mountain_height = 50.0;
 		int seed = 0;
-		Ref<VoxelLibrary> library;
-		int stone_block = 0;
 	};
 
 	Parameters _parameters;
@@ -48,6 +43,8 @@ private:
 	FastNoiseLite selector_noise;
 	// Caves
 	FastNoiseLite cheese_cave_noise;
+
+	Meadow biome;
 
 	void update_seed(int s);
 };
