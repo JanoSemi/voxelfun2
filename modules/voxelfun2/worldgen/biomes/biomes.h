@@ -4,7 +4,7 @@ class Biome {
 public:
 	Biome() {};
 	~Biome() {};
-	int generate_surface_block(int y, int surface_y) {
+	virtual int generate_surface_block(int y, int surface_y) {
 		return (y == 0) ? VoxelFun2Misc::STONE : VoxelFun2Misc::AIR;
 	};
 
@@ -27,15 +27,15 @@ protected:
 
 class Meadow : public Biome {
 public:
-	int generate_surface_block(int y, int surface_y);
+	int generate_surface_block(int y, int surface_y) override;
 };
 
 class SnowyMeadow : public Biome {
 public:
-	int generate_surface_block(int y, int surface_y);
+	int generate_surface_block(int y, int surface_y) override;
 };
 
 class Desert : public Biome {
 public:
-	int generate_surface_block(int y, int surface_y);
+	int generate_surface_block(int y, int surface_y) override;
 };

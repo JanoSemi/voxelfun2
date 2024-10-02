@@ -35,18 +35,27 @@ private:
 		int seed = 0;
 	};
 
+	struct Biomes {
+		Meadow *meadow = new Meadow();
+		SnowyMeadow *snowy_meadow = new SnowyMeadow();
+		Desert *desert = new Desert();
+	};
+
 	Parameters _parameters;
 	RWLock _parameters_lock;
 	// Heightmap
 	FastNoiseLite hill_noise;
 	FastNoiseLite mountain_noise;
 	FastNoiseLite selector_noise;
+	// Biomes
+	FastNoiseLite humidity_noise;
+	FastNoiseLite temperature_noise;
+	Biomes biomes;
 	// Caves
 	FastNoiseLite cheese_cave_noise;
 
-	Meadow biome;
-
 	void update_seed(int s);
+	Biome *select_biome(float humidity, float temperature);
 };
 
 #endif // VOXEL_GENERATOR_VOXELFUN2_H

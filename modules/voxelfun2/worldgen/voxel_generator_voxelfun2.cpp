@@ -7,6 +7,9 @@ VoxelGeneratorVoxelFun2::VoxelGeneratorVoxelFun2() {
 	selector_noise.set_period(512.0);
 	// Caves
 	cheese_cave_noise.set_period(128.0);
+	// Biomes
+	humidity_noise.set_period(2048.0);
+	temperature_noise.set_period(2048.0);
 	// Other stuff
 	update_seed(_parameters.seed);
 }
@@ -79,17 +82,28 @@ VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest
 			float mountain_y = (mountain_noise.get_noise_2d(gx, gz) * params.mountain_height) + params.mountain_height / 2;
 			float selector = selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.5f;
 			int surface_y = int(Math::lerp(hill_y, mountain_y, selector));
+			Biome *biome = select_biome(humidity_noise.get_noise_2d(gx, gz), temperature_noise.get_noise_2d(gx, gz));
 			for (int y = 0; y < bs.y; ++y) {
 				int gy = origin.y + y;
 				bool cheese_cave = ((selector > 0.4) ? gy <= surface_y : gy < surface_y) && (cheese_cave_noise.get_noise_3d(gx, gy, gz)) > 0.6;
 				if (!cheese_cave && gy <= surface_y) {
-					out_buffer.set_voxel(biome.generate_surface_block(gy, surface_y), x, y, z);
+					out_buffer.set_voxel(biome->generate_surface_block(gy, surface_y), x, y, z);
 				}
 			}
 		} // for z
 	} // for x
 
 	return result;
+}
+
+Biome *VoxelGeneratorVoxelFun2::select_biome(float humidity, float temperature) {
+	if (temperature < -0.4) {
+		return biomes.snowy_meadow;
+	} else if (temperature > 0.4) {
+		return biomes.desert;
+	} else {
+		return biomes.meadow;
+	}
 }
 
 void VoxelGeneratorVoxelFun2::_bind_methods() {
