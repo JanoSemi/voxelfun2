@@ -41,6 +41,16 @@ float VoxelGeneratorVoxelFun2::get_mountain_height() const {
 	return _parameters.mountain_height;
 }
 
+void VoxelGeneratorVoxelFun2::set_mountain_power(float p) {
+	RWLockWrite wlock(_parameters_lock);
+	_parameters.mountain_power = p;
+}
+
+float VoxelGeneratorVoxelFun2::get_mountain_power() const {
+	RWLockRead rlock(_parameters_lock);
+	return _parameters.mountain_power;
+}
+
 void VoxelGeneratorVoxelFun2::set_seed(int s) {
 	RWLockWrite wlock(_parameters_lock);
 	_parameters.seed = s;
@@ -78,9 +88,9 @@ VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest
 		int gx = origin.x + x;
 		for (int z = 0; z < bs.z; ++z) {
 			int gz = origin.z + z;
-			float hill_y = hill_noise.get_noise_2d(gx, gz) * params.hill_height;
-			float mountain_y = (mountain_noise.get_noise_2d(gx, gz) * params.mountain_height) + params.mountain_height / 2;
 			float selector = selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.5f;
+			float hill_y = (hill_noise.get_noise_2d(gx, gz) + 1.0f) * params.hill_height;
+			float mountain_y = (powf(mountain_noise.get_noise_2d(gx, gz) + 1.0f, params.mountain_power) * params.mountain_height) + params.mountain_height / 2;
 			int surface_y = int(Math::lerp(hill_y, mountain_y, selector));
 			Biome *biome = select_biome(humidity_noise.get_noise_2d(gx, gz), temperature_noise.get_noise_2d(gx, gz));
 			for (int y = 0; y < bs.y; ++y) {
@@ -111,10 +121,13 @@ void VoxelGeneratorVoxelFun2::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_hill_height"), &VoxelGeneratorVoxelFun2::get_hill_height);
 	ClassDB::bind_method(D_METHOD("set_mountain_height", "h"), &VoxelGeneratorVoxelFun2::set_mountain_height);
 	ClassDB::bind_method(D_METHOD("get_mountain_height"), &VoxelGeneratorVoxelFun2::get_mountain_height);
+	ClassDB::bind_method(D_METHOD("set_mountain_power", "h"), &VoxelGeneratorVoxelFun2::set_mountain_power);
+	ClassDB::bind_method(D_METHOD("get_mountain_power"), &VoxelGeneratorVoxelFun2::get_mountain_power);
 	ClassDB::bind_method(D_METHOD("set_seed", "s"), &VoxelGeneratorVoxelFun2::set_seed);
 	ClassDB::bind_method(D_METHOD("get_seed"), &VoxelGeneratorVoxelFun2::get_seed);
 
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "hill_height"), "set_hill_height", "get_hill_height");
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "mountain_height"), "set_mountain_height", "get_mountain_height");
+	ADD_PROPERTY(PropertyInfo(Variant::REAL, "mountain_power"), "set_mountain_power", "get_mountain_power");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "seed"), "set_seed", "get_seed");
 }

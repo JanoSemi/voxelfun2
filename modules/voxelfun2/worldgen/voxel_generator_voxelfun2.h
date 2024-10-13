@@ -22,6 +22,9 @@ public:
 	void set_mountain_height(float h);
 	float get_mountain_height() const;
 
+	void set_mountain_power(float p);
+	float get_mountain_power() const;
+
 	void set_seed(int s);
 	int get_seed() const;
 
@@ -32,6 +35,7 @@ private:
 	struct Parameters {
 		float hill_height = 10.0;
 		float mountain_height = 50.0;
+		float mountain_power = 2.5;
 		int seed = 0;
 	};
 
