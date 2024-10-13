@@ -126,7 +126,9 @@ void VoxelGeneratorVoxelFun2::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_seed", "s"), &VoxelGeneratorVoxelFun2::set_seed);
 	ClassDB::bind_method(D_METHOD("get_seed"), &VoxelGeneratorVoxelFun2::get_seed);
 
+	ADD_GROUP("Hills", "hill_");
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "hill_height"), "set_hill_height", "get_hill_height");
+	ADD_GROUP("Mountains", "mountain_");
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "mountain_height"), "set_mountain_height", "get_mountain_height");
 	ADD_PROPERTY(PropertyInfo(Variant::REAL, "mountain_power"), "set_mountain_power", "get_mountain_power");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "seed"), "set_seed", "get_seed");
