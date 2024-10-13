@@ -4,7 +4,7 @@ VoxelGeneratorVoxelFun2::VoxelGeneratorVoxelFun2() {
 	// Heightmap
 	hill_noise.set_period(128.0);
 	mountain_noise.set_period(192.0);
-	selector_noise.set_period(512.0);
+	selector_noise.set_period(1024.0);
 	// Caves
 	cheese_cave_noise.set_period(128.0);
 	// Biomes
@@ -88,9 +88,9 @@ VoxelGenerator::Result VoxelGeneratorVoxelFun2::generate_block(VoxelBlockRequest
 		int gx = origin.x + x;
 		for (int z = 0; z < bs.z; ++z) {
 			int gz = origin.z + z;
-			float selector = selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.5f;
 			float hill_y = (hill_noise.get_noise_2d(gx, gz) + 1.0f) * params.hill_height;
 			float mountain_y = (powf(mountain_noise.get_noise_2d(gx, gz) + 1.0f, params.mountain_power) * params.mountain_height) + params.mountain_height / 2;
+			float selector = clamp(selector_noise.get_noise_2d(gx, gz) * 0.5f + 0.3f, 0.0f, 1.0f);
 			int surface_y = int(Math::lerp(hill_y, mountain_y, selector));
 			Biome *biome = select_biome(humidity_noise.get_noise_2d(gx, gz), temperature_noise.get_noise_2d(gx, gz));
 			for (int y = 0; y < bs.y; ++y) {
