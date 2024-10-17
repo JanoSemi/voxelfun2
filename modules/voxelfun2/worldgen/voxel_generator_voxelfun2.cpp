@@ -9,7 +9,15 @@ VoxelGeneratorVoxelFun2::VoxelGeneratorVoxelFun2() {
 	cheese_cave_noise.set_period(128.0);
 	// Biomes
 	humidity_noise.set_period(2048.0);
+	humidity_noise.set_fractal_octaves(2);
+	humidity_noise.set_fractal_lacunarity(80.0f);
+	humidity_noise.set_fractal_gain(0.1f);
+	humidity_noise.set_fractal_weighted_strength(2.5f);
 	temperature_noise.set_period(2048.0);
+	temperature_noise.set_fractal_octaves(2);
+	temperature_noise.set_fractal_lacunarity(80.0f);
+	temperature_noise.set_fractal_gain(0.1f);
+	temperature_noise.set_fractal_weighted_strength(2.5f);
 	// Other stuff
 	update_seed(_parameters.seed);
 }
