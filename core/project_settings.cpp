@@ -1119,6 +1119,56 @@ ProjectSettings::ProjectSettings() {
 	action["deadzone"] = Variant(0.5f);
 	events = Array();
 	key.instance();
+	key->set_scancode(KEY_W);
+	events.push_back(key);
+	action["events"] = events;
+	GLOBAL_DEF("input/forward", action);
+	input_presets.push_back("input/forward");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	key.instance();
+	key->set_scancode(KEY_S);
+	events.push_back(key);
+	action["events"] = events;
+	GLOBAL_DEF("input/backward", action);
+	input_presets.push_back("input/backward");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	key.instance();
+	key->set_scancode(KEY_A);
+	events.push_back(key);
+	action["events"] = events;
+	GLOBAL_DEF("input/left", action);
+	input_presets.push_back("input/left");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	key.instance();
+	key->set_scancode(KEY_D);
+	events.push_back(key);
+	action["events"] = events;
+	GLOBAL_DEF("input/right", action);
+	input_presets.push_back("input/right");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	key.instance();
+	key->set_scancode(KEY_SPACE);
+	events.push_back(key);
+	action["events"] = events;
+	GLOBAL_DEF("input/jump", action);
+	input_presets.push_back("input/jump");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	key.instance();
 	key->set_scancode(KEY_ENTER);
 	events.push_back(key);
 	key.instance();

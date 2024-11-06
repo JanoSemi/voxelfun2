@@ -294,6 +294,31 @@ void InputMap::load_from_globals() {
 void InputMap::load_default() {
 	Ref<InputEventKey> key;
 
+	add_action("forward");
+	key.instance();
+	key->set_scancode(KEY_W);
+	action_add_event("forward", key);
+
+	add_action("backward");
+	key.instance();
+	key->set_scancode(KEY_S);
+	action_add_event("backward", key);
+
+	add_action("left");
+	key.instance();
+	key->set_scancode(KEY_A);
+	action_add_event("left", key);
+
+	add_action("right");
+	key.instance();
+	key->set_scancode(KEY_D);
+	action_add_event("right", key);
+
+	add_action("jump");
+	key.instance();
+	key->set_scancode(KEY_SPACE);
+	action_add_event("jump", key);
+
 	add_action("ui_accept");
 	key.instance();
 	key->set_scancode(KEY_ENTER);
