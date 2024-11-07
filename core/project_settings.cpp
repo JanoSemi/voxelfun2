@@ -1059,6 +1059,7 @@ ProjectSettings::ProjectSettings() {
 	Array events;
 	Dictionary action;
 	Ref<InputEventKey> key;
+	Ref<InputEventMouseButton> mouseb;
 	Ref<InputEventJoypadButton> joyb;
 
 	GLOBAL_DEF("application/config/name", "");
@@ -1164,6 +1165,26 @@ ProjectSettings::ProjectSettings() {
 	action["events"] = events;
 	GLOBAL_DEF("input/jump", action);
 	input_presets.push_back("input/jump");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	mouseb.instance();
+	mouseb->set_button_index(BUTTON_LEFT);
+	events.push_back(mouseb);
+	action["events"] = events;
+	GLOBAL_DEF("input/break_block", action);
+	input_presets.push_back("input/break_block");
+
+	action = Dictionary();
+	action["deadzone"] = Variant(0.5f);
+	events = Array();
+	mouseb.instance();
+	mouseb->set_button_index(BUTTON_RIGHT);
+	events.push_back(mouseb);
+	action["events"] = events;
+	GLOBAL_DEF("input/place_block", action);
+	input_presets.push_back("input/place_block");
 
 	action = Dictionary();
 	action["deadzone"] = Variant(0.5f);

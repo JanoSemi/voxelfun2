@@ -45,12 +45,22 @@ void Player::_input(const Ref<InputEvent> &p_event) {
 		return;
 	}
 	const InputEventMouseMotion *mme = Object::cast_to<InputEventMouseMotion>(*p_event);
-	if (!mme) {
-		return;
+	if (mme) {
+		rotate_y(mme->get_relative().x * horizontal_sensitivity);
+		if (camera) {
+			camera->set_rotation(Vector3(clamp<float>(camera->get_rotation().x + mme->get_relative().y * vertical_sensitivity, -Math_PI / 2, Math_PI / 2), 0.0f, 0.0f));
+		}
 	}
-	rotate_y(mme->get_relative().x * horizontal_sensitivity);
-	if (camera) {
-		camera->set_rotation(Vector3(clamp<float>(camera->get_rotation().x + mme->get_relative().y * vertical_sensitivity, -Math_PI / 2, Math_PI / 2), 0.0f, 0.0f));
+	Ref<VoxelRaycastResult> pointed_voxel = get_pointed_result();
+	if (pointed_voxel.is_valid()) {
+		if (p_event->is_action_pressed("break_block")) {
+			print_line("Breaking block");
+			tool->set_voxel(pointed_voxel->position, 0);
+		}
+		if (p_event->is_action_pressed("place_block")) {
+			print_line("Placing block");
+			tool->set_voxel(pointed_voxel->previous_position, 1);
+		}
 	}
 }
 
@@ -67,6 +77,10 @@ void Player::_notification(int p_what) {
 			}
 			break;
 	}
+}
+
+Ref<VoxelRaycastResult> Player::get_pointed_result() {
+	return tool->raycast(camera->get_global_transform().origin, -camera->get_global_transform().basis.get_axis(Vector3::AXIS_Z), 10.0, 1);
 }
 
 void Player::_bind_methods() {

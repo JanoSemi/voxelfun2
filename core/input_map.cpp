@@ -293,6 +293,7 @@ void InputMap::load_from_globals() {
 
 void InputMap::load_default() {
 	Ref<InputEventKey> key;
+	Ref<InputEventMouseButton> mouseb;
 
 	add_action("forward");
 	key.instance();
@@ -319,6 +320,16 @@ void InputMap::load_default() {
 	key->set_scancode(KEY_SPACE);
 	action_add_event("jump", key);
 
+	add_action("break_block");
+	mouseb.instance();
+	mouseb->set_button_index(BUTTON_LEFT);
+	action_add_event("break_block", mouseb);
+
+	add_action("place_block");
+	mouseb.instance();
+	mouseb->set_button_index(BUTTON_RIGHT);
+	action_add_event("place_block", mouseb);
+	
 	add_action("ui_accept");
 	key.instance();
 	key->set_scancode(KEY_ENTER);

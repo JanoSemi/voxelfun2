@@ -6,6 +6,7 @@
 #include "core/math/vector3.h"
 #include "core/os/input.h"
 #include "core/os/input_event.h"
+#include "modules/voxel/edition/voxel_raycast_result.h"
 #include "scene/3d/camera.h"
 
 class Player : public Entity {
@@ -18,6 +19,8 @@ public:
 	void _physics_process(float delta) override;
 
 	void _input(const Ref<InputEvent> &p_event);
+
+	Ref<VoxelRaycastResult> get_pointed_result();
 
 	// Setter/Getter
 	void set_speed(float s) { speed = s; };
