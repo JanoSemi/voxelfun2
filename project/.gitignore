@@ -1,0 +1,4 @@
+## Godot 3
+.import/
+*.translation
+export_presets.cfg

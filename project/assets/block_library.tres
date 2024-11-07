@@ -1,0 +1,406 @@
+[gd_resource type="VoxelLibrary" load_steps=30 format=2]
+
+[sub_resource type="Voxel" id=2]
+resource_name = "Air"
+voxel_name = "air"
+
+[sub_resource type="Voxel" id=3]
+resource_name = "Dirt"
+voxel_name = "dirt"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 0 )
+cube_tiles/right = Vector2( 0, 0 )
+cube_tiles/bottom = Vector2( 0, 0 )
+cube_tiles/top = Vector2( 0, 0 )
+cube_tiles/back = Vector2( 0, 0 )
+cube_tiles/front = Vector2( 0, 0 )
+
+[sub_resource type="Voxel" id=21]
+resource_name = "Glass"
+voxel_name = "glass"
+material_id = 1
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 2, 1 )
+cube_tiles/right = Vector2( 2, 1 )
+cube_tiles/bottom = Vector2( 2, 1 )
+cube_tiles/top = Vector2( 2, 1 )
+cube_tiles/back = Vector2( 2, 1 )
+cube_tiles/front = Vector2( 2, 1 )
+
+[sub_resource type="Voxel" id=22]
+resource_name = "Bookshelf"
+voxel_name = "bookshelf"
+material_id = 1
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 2, 2 )
+cube_tiles/right = Vector2( 2, 2 )
+cube_tiles/bottom = Vector2( 2, 2 )
+cube_tiles/top = Vector2( 2, 2 )
+cube_tiles/back = Vector2( 2, 2 )
+cube_tiles/front = Vector2( 2, 2 )
+
+[sub_resource type="Voxel" id=23]
+resource_name = "Coal Block"
+voxel_name = "coal_block"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 3, 1 )
+cube_tiles/right = Vector2( 3, 1 )
+cube_tiles/bottom = Vector2( 3, 1 )
+cube_tiles/top = Vector2( 3, 1 )
+cube_tiles/back = Vector2( 3, 1 )
+cube_tiles/front = Vector2( 3, 1 )
+
+[sub_resource type="Voxel" id=24]
+resource_name = "Iron Block"
+voxel_name = "iron_block"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 3, 2 )
+cube_tiles/right = Vector2( 3, 2 )
+cube_tiles/bottom = Vector2( 3, 2 )
+cube_tiles/top = Vector2( 3, 2 )
+cube_tiles/back = Vector2( 3, 2 )
+cube_tiles/front = Vector2( 3, 2 )
+
+[sub_resource type="Voxel" id=25]
+resource_name = "Gold Block"
+voxel_name = "gold_block"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 3, 3 )
+cube_tiles/right = Vector2( 3, 3 )
+cube_tiles/bottom = Vector2( 3, 3 )
+cube_tiles/top = Vector2( 3, 3 )
+cube_tiles/back = Vector2( 3, 3 )
+cube_tiles/front = Vector2( 3, 3 )
+
+[sub_resource type="Voxel" id=26]
+resource_name = "Stone"
+voxel_name = "stone"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 4, 0 )
+cube_tiles/right = Vector2( 4, 0 )
+cube_tiles/bottom = Vector2( 4, 0 )
+cube_tiles/top = Vector2( 4, 0 )
+cube_tiles/back = Vector2( 4, 0 )
+cube_tiles/front = Vector2( 4, 0 )
+
+[sub_resource type="Voxel" id=27]
+resource_name = "Stone Coal Ore"
+voxel_name = "stone_coal_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 4, 1 )
+cube_tiles/right = Vector2( 4, 1 )
+cube_tiles/bottom = Vector2( 4, 1 )
+cube_tiles/top = Vector2( 4, 1 )
+cube_tiles/back = Vector2( 4, 1 )
+cube_tiles/front = Vector2( 4, 1 )
+
+[sub_resource type="Voxel" id=28]
+resource_name = "Stone Iron Ore"
+voxel_name = "stone_iron_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 4, 2 )
+cube_tiles/right = Vector2( 4, 2 )
+cube_tiles/bottom = Vector2( 4, 2 )
+cube_tiles/top = Vector2( 4, 2 )
+cube_tiles/back = Vector2( 4, 2 )
+cube_tiles/front = Vector2( 4, 2 )
+
+[sub_resource type="Voxel" id=29]
+resource_name = "Stone Gold Ore"
+voxel_name = "stone_gold_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 4, 3 )
+cube_tiles/right = Vector2( 4, 3 )
+cube_tiles/bottom = Vector2( 4, 3 )
+cube_tiles/top = Vector2( 4, 3 )
+cube_tiles/back = Vector2( 4, 3 )
+cube_tiles/front = Vector2( 4, 3 )
+
+[sub_resource type="Voxel" id=30]
+resource_name = "Deep Stone"
+voxel_name = "deep_stone"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 5, 0 )
+cube_tiles/right = Vector2( 5, 0 )
+cube_tiles/bottom = Vector2( 5, 0 )
+cube_tiles/top = Vector2( 5, 0 )
+cube_tiles/back = Vector2( 5, 0 )
+cube_tiles/front = Vector2( 5, 0 )
+
+[sub_resource type="Voxel" id=10]
+resource_name = "Grass"
+voxel_name = "grass"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 2 )
+cube_tiles/right = Vector2( 0, 2 )
+cube_tiles/bottom = Vector2( 0, 0 )
+cube_tiles/top = Vector2( 0, 1 )
+cube_tiles/back = Vector2( 0, 2 )
+cube_tiles/front = Vector2( 0, 2 )
+
+[sub_resource type="Voxel" id=31]
+resource_name = "Deep Stone Coal Ore"
+voxel_name = "deep_stone_coal_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 5, 1 )
+cube_tiles/right = Vector2( 5, 1 )
+cube_tiles/bottom = Vector2( 5, 1 )
+cube_tiles/top = Vector2( 5, 1 )
+cube_tiles/back = Vector2( 5, 1 )
+cube_tiles/front = Vector2( 5, 1 )
+
+[sub_resource type="Voxel" id=32]
+resource_name = "Deep Stone Iron Ore"
+voxel_name = "deep_stone_iron_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 5, 2 )
+cube_tiles/right = Vector2( 5, 2 )
+cube_tiles/bottom = Vector2( 5, 2 )
+cube_tiles/top = Vector2( 5, 2 )
+cube_tiles/back = Vector2( 5, 2 )
+cube_tiles/front = Vector2( 5, 2 )
+
+[sub_resource type="Voxel" id=33]
+resource_name = "Deep Stone Gold Ore"
+voxel_name = "deep_stone_gold_ore"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 5, 3 )
+cube_tiles/right = Vector2( 5, 3 )
+cube_tiles/bottom = Vector2( 5, 3 )
+cube_tiles/top = Vector2( 5, 3 )
+cube_tiles/back = Vector2( 5, 3 )
+cube_tiles/front = Vector2( 5, 3 )
+
+[sub_resource type="Voxel" id=34]
+resource_name = "Beech Log"
+voxel_name = "beech_log"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 6, 1 )
+cube_tiles/right = Vector2( 6, 1 )
+cube_tiles/bottom = Vector2( 6, 0 )
+cube_tiles/top = Vector2( 6, 0 )
+cube_tiles/back = Vector2( 6, 1 )
+cube_tiles/front = Vector2( 6, 1 )
+
+[sub_resource type="Voxel" id=35]
+resource_name = "Beech Plank"
+voxel_name = "beech_plank"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 6, 2 )
+cube_tiles/right = Vector2( 6, 2 )
+cube_tiles/bottom = Vector2( 6, 2 )
+cube_tiles/top = Vector2( 6, 2 )
+cube_tiles/back = Vector2( 6, 2 )
+cube_tiles/front = Vector2( 6, 2 )
+
+[sub_resource type="Voxel" id=36]
+resource_name = "Beech Leaf"
+voxel_name = "beech_leaf"
+material_id = 1
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 6, 3 )
+cube_tiles/right = Vector2( 6, 3 )
+cube_tiles/bottom = Vector2( 6, 3 )
+cube_tiles/top = Vector2( 6, 3 )
+cube_tiles/back = Vector2( 6, 3 )
+cube_tiles/front = Vector2( 6, 3 )
+
+[sub_resource type="Voxel" id=37]
+resource_name = "Fir Log"
+voxel_name = "fir_log"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 7, 1 )
+cube_tiles/right = Vector2( 7, 1 )
+cube_tiles/bottom = Vector2( 7, 0 )
+cube_tiles/top = Vector2( 7, 0 )
+cube_tiles/back = Vector2( 7, 1 )
+cube_tiles/front = Vector2( 7, 1 )
+
+[sub_resource type="Voxel" id=38]
+resource_name = "Fir Plank"
+voxel_name = "fir_plank"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 7, 2 )
+cube_tiles/right = Vector2( 7, 2 )
+cube_tiles/bottom = Vector2( 7, 2 )
+cube_tiles/top = Vector2( 7, 2 )
+cube_tiles/back = Vector2( 7, 2 )
+cube_tiles/front = Vector2( 7, 2 )
+
+[sub_resource type="Voxel" id=39]
+resource_name = "Fir Leaf"
+voxel_name = "fir_leaf"
+material_id = 1
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 7, 3 )
+cube_tiles/right = Vector2( 7, 3 )
+cube_tiles/bottom = Vector2( 7, 3 )
+cube_tiles/top = Vector2( 7, 3 )
+cube_tiles/back = Vector2( 7, 3 )
+cube_tiles/front = Vector2( 7, 3 )
+
+[sub_resource type="Voxel" id=13]
+resource_name = "Snow"
+voxel_name = "snow"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 4 )
+cube_tiles/right = Vector2( 0, 4 )
+cube_tiles/bottom = Vector2( 0, 0 )
+cube_tiles/top = Vector2( 0, 3 )
+cube_tiles/back = Vector2( 0, 4 )
+cube_tiles/front = Vector2( 0, 4 )
+
+[sub_resource type="Voxel" id=14]
+resource_name = "Sand"
+voxel_name = "sand"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 5 )
+cube_tiles/right = Vector2( 0, 5 )
+cube_tiles/bottom = Vector2( 0, 5 )
+cube_tiles/top = Vector2( 0, 5 )
+cube_tiles/back = Vector2( 0, 5 )
+cube_tiles/front = Vector2( 0, 5 )
+
+[sub_resource type="Voxel" id=15]
+resource_name = "Cactus"
+voxel_name = "cactus"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 1, 0 )
+cube_tiles/right = Vector2( 1, 0 )
+cube_tiles/bottom = Vector2( 1, 0 )
+cube_tiles/top = Vector2( 1, 0 )
+cube_tiles/back = Vector2( 1, 0 )
+cube_tiles/front = Vector2( 1, 0 )
+
+[sub_resource type="Voxel" id=16]
+resource_name = "Tall Grass"
+voxel_name = "tall_grass"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 1, 1 )
+cube_tiles/right = Vector2( 1, 1 )
+cube_tiles/bottom = Vector2( 1, -1 )
+cube_tiles/top = Vector2( 1, -1 )
+cube_tiles/back = Vector2( 1, 1 )
+cube_tiles/front = Vector2( 1, 1 )
+
+[sub_resource type="Voxel" id=17]
+resource_name = "Shrub"
+voxel_name = "shrub"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 1, 2 )
+cube_tiles/right = Vector2( 1, 2 )
+cube_tiles/bottom = Vector2( 1, -1 )
+cube_tiles/top = Vector2( 1, -1 )
+cube_tiles/back = Vector2( 1, 2 )
+cube_tiles/front = Vector2( 1, 2 )
+
+[sub_resource type="Voxel" id=18]
+resource_name = "Red Flower"
+voxel_name = "red_flower"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 1, 1 )
+cube_tiles/right = Vector2( 1, 1 )
+cube_tiles/bottom = Vector2( 1, -1 )
+cube_tiles/top = Vector2( 1, -1 )
+cube_tiles/back = Vector2( 1, 1 )
+cube_tiles/front = Vector2( 1, 1 )
+
+[sub_resource type="Voxel" id=20]
+resource_name = "Bricks"
+voxel_name = "bricks"
+material_id = 1
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 2, 0 )
+cube_tiles/right = Vector2( 2, 0 )
+cube_tiles/bottom = Vector2( 2, 0 )
+cube_tiles/top = Vector2( 2, 0 )
+cube_tiles/back = Vector2( 2, 0 )
+cube_tiles/front = Vector2( 2, 0 )
+
+[resource]
+atlas_size = 8
+voxels/0 = SubResource( 2 )
+voxels/1 = SubResource( 3 )
+voxels/2 = SubResource( 10 )
+voxels/3 = SubResource( 13 )
+voxels/4 = SubResource( 14 )
+voxels/5 = SubResource( 15 )
+voxels/6 = SubResource( 16 )
+voxels/7 = SubResource( 17 )
+voxels/8 = SubResource( 18 )
+voxels/9 = SubResource( 20 )
+voxels/10 = SubResource( 21 )
+voxels/11 = SubResource( 22 )
+voxels/12 = SubResource( 23 )
+voxels/13 = SubResource( 24 )
+voxels/14 = SubResource( 25 )
+voxels/15 = SubResource( 26 )
+voxels/16 = SubResource( 27 )
+voxels/17 = SubResource( 28 )
+voxels/18 = SubResource( 29 )
+voxels/19 = SubResource( 30 )
+voxels/20 = SubResource( 31 )
+voxels/21 = SubResource( 32 )
+voxels/22 = SubResource( 33 )
+voxels/23 = SubResource( 34 )
+voxels/24 = SubResource( 35 )
+voxels/25 = SubResource( 36 )
+voxels/26 = SubResource( 37 )
+voxels/27 = SubResource( 38 )
+voxels/28 = SubResource( 39 )
