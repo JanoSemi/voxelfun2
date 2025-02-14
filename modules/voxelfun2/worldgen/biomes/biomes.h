@@ -1,3 +1,6 @@
+#ifndef BIOMES_H
+#define BIOMES_H
+
 #include "modules/voxelfun2/misc.h"
 
 class Biome {
@@ -39,3 +42,5 @@ class Desert : public Biome {
 public:
 	int generate_surface_block(int y, int surface_y) override;
 };
+
+#endif // BIOMES_H
